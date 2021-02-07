@@ -1,5 +1,10 @@
 # Pixel Art Editor
 
+## Roadmap
+https://github.com/DmitryOlkhovoi/Pixel-Art-Editor/projects/1
+
+## Tech
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
