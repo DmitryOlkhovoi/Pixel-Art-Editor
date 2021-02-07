@@ -3,12 +3,17 @@
   height: 100vh;
 }
 
-.app-ui {
+.app-main {
   @apply flex flex-1;
 }
 
-.top {
+.app-header {
   @apply text-white p-4;
+  background-color: #16171e;
+}
+
+.app-footer {
+  @apply p-3;
   background-color: #16171e;
 }
 

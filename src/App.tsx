@@ -8,8 +8,8 @@ function App() {
 
   return (
     <div className="app">
-      <nav className="top">Pixart</nav>
-      <div className="app-ui">
+      <header className="app-header">Pixart</header>
+      <main className="app-main">
         <div className="canvas-wrapper">
           <Canvas color={color}></Canvas>
         </div>
@@ -19,7 +19,8 @@ function App() {
             onChange={(colorResult) => setColor(colorResult.hex)}
           ></SketchPicker>
         </div>
-      </div>
+      </main>
+      <footer className="app-footer"></footer>
     </div>
   );
 }

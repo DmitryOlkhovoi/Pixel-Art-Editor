@@ -36,8 +36,22 @@ const Canvas: FC<Props> = ({ color }) => {
   }
 
   function onMouseUp() {
+    if (!lastPixel) {
+      return;
+    }
+
     fillPixel({ x: lastPixel![0], y: lastPixel![1] });
     setLastPixel(void 0);
+  }
+
+  function onMouseEnter(e: MouseEvent) {
+    if (lastPixel) {
+      setLastPixel(getCoordinates(e));
+    }
+  }
+
+  function mouseLeave() {
+    // setLastPixel(void 0);
   }
 
   function fillPixels(pixels: any) {
@@ -55,6 +69,8 @@ const Canvas: FC<Props> = ({ color }) => {
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={mouseLeave}
       width="100"
       height="100"
     ></canvas>
