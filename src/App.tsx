@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ColorResult, SketchPicker } from "react-color";
-import logo from "./logo.svg";
 import "./App.css";
 import Canvas from "./Canvas";
 

@@ -1,6 +1,5 @@
-import React, { FC, MouseEvent, useEffect, useRef, useState } from "react";
+import React, { FC, MouseEvent, useRef, useState } from "react";
 import bresenham from "bresenham";
-import logo from "./logo.svg";
 import "./Canvas.css";
 import { ColorResult } from "react-color";
 
