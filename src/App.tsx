@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { ColorResult, SketchPicker } from "react-color";
+import logo from "./logo.svg";
+import "./App.css";
+import Canvas from "./Canvas";
 
 function App() {
+  const [color, setColor] = useState<ColorResult["hex"]>("#000000");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <nav className="top">Pixart</nav>
+      <div className="app-ui">
+        <div className="canvas-wrapper">
+          <Canvas color={color}></Canvas>
+        </div>
+        <div className="right-panel">
+          <SketchPicker
+            color={color}
+            onChange={(colorResult) => setColor(colorResult.hex)}
+          ></SketchPicker>
+        </div>
+      </div>
     </div>
   );
 }
