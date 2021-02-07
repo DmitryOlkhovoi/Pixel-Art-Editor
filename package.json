@@ -26,7 +26,10 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "buildMac": "npx nativefier -p osx https://pixel-art-editor.vercel.app/ release",
+    "buildLinux": "npx nativefier -p linux https://pixel-art-editor.vercel.app/ release",
+    "buildWindows": "npx nativefier -p windows https://pixel-art-editor.vercel.app/ release"
   },
   "eslintConfig": {
     "extends": [
