@@ -1,6 +1,7 @@
 # Pixel Art Editor
 
 ## Roadmap
+This is a new project! Here you can follow the progress and help
 https://github.com/DmitryOlkhovoi/Pixel-Art-Editor/projects/1
 
 ## Tech
