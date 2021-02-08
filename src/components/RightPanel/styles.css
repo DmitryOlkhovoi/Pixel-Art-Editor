@@ -1,0 +1,23 @@
+.right-panel {
+  @apply w-72;
+  background-color: #27282e;
+}
+
+.right-panel-header {
+  @apply p-4 text-xl;
+  color: #d7d7d9;
+}
+
+.right-panel-section {
+  @apply py-2;
+  border-top: solid 1px #31323c;
+}
+
+.right-panel-section-name {
+  @apply font-bold px-4;
+  color: #4b4c53;
+}
+
+.right-panel-tool {
+  @apply p-4;
+}

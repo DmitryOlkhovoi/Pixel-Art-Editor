@@ -1,13 +1,13 @@
-import React, { FC, MouseEvent, useRef, useState } from "react";
+import { FC, MouseEvent, useRef, useState } from "react";
 import bresenham from "bresenham";
 import "./Canvas.css";
-import { ColorResult } from "react-color";
+import { useSelector } from "react-redux";
+import { State } from "./types";
 
-export interface Props {
-  color: ColorResult["hex"];
-}
+const Canvas: FC = () => {
+  const size = useSelector((state: State) => state.pixel.size);
+  const color = useSelector((state: State) => state.pixel.color);
 
-const Canvas: FC<Props> = ({ color }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [lastPixel, setLastPixel] = useState<number[]>();
   const context = canvasRef.current?.getContext("2d");
@@ -60,7 +60,12 @@ const Canvas: FC<Props> = ({ color }) => {
 
   function fillPixel({ x, y }: any) {
     context!.fillStyle = color;
-    context!.fillRect(x, y, 1, 1);
+    context!.fillRect(
+      x - Math.floor(size / 2),
+      y - Math.floor(size / 2),
+      size,
+      size
+    );
   }
 
   return (

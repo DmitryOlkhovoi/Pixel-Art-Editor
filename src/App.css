@@ -17,10 +17,6 @@
   background-color: #16171e;
 }
 
-.right-panel {
-  background-color: #27282e;
-}
-
 .canvas-wrapper {
   @apply overflow-scroll flex flex-1 justify-center items-center;
 

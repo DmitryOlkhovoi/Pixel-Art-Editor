@@ -1,0 +1,16 @@
+.pixel-size {
+  @apply flex justify-between items-center;
+}
+
+.size-value {
+  color: #a9a9bd;
+}
+
+.pixel-size-slider {
+  @apply w-40;
+}
+
+.tool-title {
+  @apply text-xs font-bold;
+  color: #5b5c65;
+}
