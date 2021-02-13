@@ -18,6 +18,7 @@ const PixelSize: FC = () => {
           className="pixel-size-slider"
           min={1}
           max={10}
+          value={size}
           trackStyle={{ background: "#6446c2" }}
           railStyle={{ background: "#5a5b66" }}
           handleStyle={{
