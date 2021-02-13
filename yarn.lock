@@ -1717,6 +1717,11 @@
   resolved "https://registry.yarnpkg.com/@types/bresenham/-/bresenham-0.0.0.tgz#dbc14209044b92e485363dc8967daa9cdc0ebb52"
   integrity sha512-QqR0H0AgrE8xuelL53vj/MHMWip2GjMj/m8qpAB1YflN4Xj9s9Kr5J+tUd5Im0/Va0eiGZXCBpbPKY27nNTMZw==
 
+"@types/classnames@^2.2.11":
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.11.tgz#2521cc86f69d15c5b90664e4829d84566052c1cf"
+  integrity sha512-2koNhpWm3DgWRp5tpkiJ8JGc1xTn2q0l+jUNUE7oMKXUf5NpI9AIdC4kbjGNFBdHtcxBD18LAksoudAVhFKCjw==
+
 "@types/eslint@^7.2.6":
   version "7.2.6"
   resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-7.2.6.tgz#5e9aff555a975596c03a98b59ecd103decc70c3c"

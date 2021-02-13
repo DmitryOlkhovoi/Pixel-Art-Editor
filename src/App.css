@@ -7,11 +7,6 @@
   @apply flex flex-1;
 }
 
-.app-header {
-  @apply text-white p-4;
-  background-color: #16171e;
-}
-
 .app-footer {
   @apply p-3;
   background-color: #16171e;

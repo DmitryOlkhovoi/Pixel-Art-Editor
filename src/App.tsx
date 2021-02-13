@@ -1,11 +1,14 @@
 import "./App.css";
 import Canvas from "./Canvas";
 import RightPanel from "./components/RightPanel";
+import TopPanel from "./components/TopPanel";
 
 function App() {
   return (
     <div className="app">
-      <header className="app-header">Pixart</header>
+      <header>
+        <TopPanel />
+      </header>
       <main className="app-main">
         <Canvas />
         <RightPanel />

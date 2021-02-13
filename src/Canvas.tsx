@@ -17,7 +17,7 @@ const Canvas: FC = () => {
 
   useEffect(() => {
     setContext(canvasRef.current!.getContext("2d"));
-  }, [canvasRef.current]);
+  }, []);
 
   useEffect(() => {
     if (imageDataURL) {
@@ -29,7 +29,7 @@ const Canvas: FC = () => {
 
       img.src = imageDataURL;
     }
-  }, [context]);
+  }, [context, imageDataURL]);
 
   function getCoordinates(e: any) {
     const rect = canvasRef.current!.getBoundingClientRect();
