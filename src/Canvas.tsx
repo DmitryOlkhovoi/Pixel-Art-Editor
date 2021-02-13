@@ -44,16 +44,6 @@ const Canvas: FC = () => {
     setLastPixel(void 0);
   }
 
-  function onMouseEnter(e: MouseEvent) {
-    if (lastPixel) {
-      setLastPixel(getCoordinates(e));
-    }
-  }
-
-  function mouseLeave() {
-    // setLastPixel(void 0);
-  }
-
   function fillPixels(pixels: any) {
     pixels.forEach(fillPixel);
   }
@@ -69,16 +59,14 @@ const Canvas: FC = () => {
   }
 
   return (
-    <canvas
-      ref={canvasRef}
+    <div
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={mouseLeave}
-      width="100"
-      height="100"
-    ></canvas>
+      className="canvas-wrapper"
+    >
+      <canvas ref={canvasRef} width="100" height="100"></canvas>
+    </div>
   );
 };
 

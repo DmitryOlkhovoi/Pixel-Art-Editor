@@ -7,9 +7,7 @@ function App() {
     <div className="app">
       <header className="app-header">Pixart</header>
       <main className="app-main">
-        <div className="canvas-wrapper">
-          <Canvas />
-        </div>
+        <Canvas />
         <RightPanel />
       </main>
       <footer className="app-footer"></footer>

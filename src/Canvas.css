@@ -1,10 +1,17 @@
 canvas {
   height: 500px;
   width: 500px;
+  @apply bg-white;
   border: 1px solid grey;
 
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+}
+
+.canvas-wrapper {
+  @apply overflow-scroll flex flex-1 justify-center items-center;
+
+  background-color: #1b1c22;
 }
