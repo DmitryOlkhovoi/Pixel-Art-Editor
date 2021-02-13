@@ -5,7 +5,7 @@ import reducers from "./reducers";
 
 export const saveState = (state: Partial<State>) => {
   try {
-    const serializedState = JSON.stringify(_.pick(state, ["pixel"]));
+    const serializedState = JSON.stringify(_.pick(state, ["pixel", "image"]));
     localStorage.setItem("state", serializedState);
   } catch {
     // ignore write errors

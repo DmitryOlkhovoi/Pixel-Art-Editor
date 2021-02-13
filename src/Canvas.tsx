@@ -1,16 +1,35 @@
-import { FC, MouseEvent, useRef, useState } from "react";
+import { FC, MouseEvent, useEffect, useRef, useState } from "react";
 import bresenham from "bresenham";
 import "./Canvas.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { State } from "./types";
+import { setDataURL } from "./store/actions/image";
 
 const Canvas: FC = () => {
+  const dispatch = useDispatch();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [context, setContext] = useState<CanvasRenderingContext2D | null>();
   const size = useSelector((state: State) => state.pixel.size);
   const color = useSelector((state: State) => state.pixel.color);
+  const imageDataURL = useSelector((state: State) => state.image.dataURL);
 
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [lastPixel, setLastPixel] = useState<number[]>();
-  const context = canvasRef.current?.getContext("2d");
+
+  useEffect(() => {
+    setContext(canvasRef.current!.getContext("2d"));
+  }, [canvasRef.current]);
+
+  useEffect(() => {
+    if (imageDataURL) {
+      const img = new Image();
+
+      img.onload = function () {
+        context?.drawImage(img, 0, 0);
+      };
+
+      img.src = imageDataURL;
+    }
+  }, [context]);
 
   function getCoordinates(e: any) {
     const rect = canvasRef.current!.getBoundingClientRect();
@@ -42,6 +61,8 @@ const Canvas: FC = () => {
 
     fillPixel({ x: lastPixel![0], y: lastPixel![1] });
     setLastPixel(void 0);
+
+    dispatch(setDataURL(canvasRef.current?.toDataURL()));
   }
 
   function fillPixels(pixels: any) {
