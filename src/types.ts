@@ -1,4 +1,4 @@
-export type TOOLS = "eraser" | "";
+export type TOOLS = "eraser" | "mirror";
 export interface PixelState {
   color: string;
   size: number;

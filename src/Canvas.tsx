@@ -15,10 +15,17 @@ const Canvas: FC = () => {
   const selectedTool = useSelector((state: State) => state.tool.selectedTool);
 
   const [lastPixel, setLastPixel] = useState<number[]>();
+  const [startPixel, setStartPixel] = useState<number[]>();
 
   useEffect(() => {
     setContext(canvasRef.current!.getContext("2d"));
   }, []);
+
+  useEffect(() => {
+    if (context) {
+      context.fillStyle = color;
+    }
+  }, [context, color]);
 
   useEffect(() => {
     if (imageDataURL) {
@@ -40,7 +47,10 @@ const Canvas: FC = () => {
   }
 
   function onMouseDown(e: MouseEvent) {
-    setLastPixel(getCoordinates(e));
+    const pixelCoordinates = getCoordinates(e);
+
+    setLastPixel(pixelCoordinates);
+    setStartPixel(pixelCoordinates);
   }
 
   function onMouseMove(e: MouseEvent) {
@@ -79,8 +89,18 @@ const Canvas: FC = () => {
         context?.clearRect(fx, fy, size, size);
         break;
       }
+      case "mirror": {
+        const mirror = [startPixel![0] - fx, startPixel![1] - fy];
+        context!.fillRect(
+          startPixel![0] + mirror[0],
+          startPixel![1] - mirror[1],
+          size,
+          size
+        );
+        context!.fillRect(fx, fy, size, size);
+        break;
+      }
       default: {
-        context!.fillStyle = color;
         context!.fillRect(fx, fy, size, size);
       }
     }

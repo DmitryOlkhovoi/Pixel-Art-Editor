@@ -5,6 +5,7 @@ import { setTool } from "../../store/actions/tool";
 import { State, TOOLS } from "../../types";
 import "./styles.css";
 import Eraser from "./tools/Eraser";
+import Mirror from "./tools/Mirror";
 
 interface Tool {
   name: TOOLS;
@@ -14,6 +15,7 @@ interface Tool {
 
 const PANEL_TOOLS: Tool[] = [
   { name: "eraser", text: "Eraser", component: Eraser },
+  { name: "mirror", text: "Mirror", component: Mirror },
 ];
 
 const LeftPanel: FC = () => {
