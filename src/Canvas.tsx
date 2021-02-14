@@ -3,7 +3,10 @@ import bresenham from "bresenham";
 import "./Canvas.css";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "./types";
-import { setDataURL } from "./store/actions/image";
+import { setDataURL, setLoadedURL } from "./store/actions/image";
+
+const WIDTH = 100;
+const HEIGHT = 100;
 
 const Canvas: FC = () => {
   const dispatch = useDispatch();
@@ -12,6 +15,9 @@ const Canvas: FC = () => {
   const size = useSelector((state: State) => state.pixel.size);
   const color = useSelector((state: State) => state.pixel.color);
   const imageDataURL = useSelector((state: State) => state.image.dataURL);
+  const loadedImageDataURL = useSelector(
+    (state: State) => state.image.loadedDataURL
+  );
   const selectedTool = useSelector((state: State) => state.tool.selectedTool);
 
   const [lastPixel, setLastPixel] = useState<number[]>();
@@ -27,6 +33,7 @@ const Canvas: FC = () => {
     }
   }, [context, color]);
 
+  // TODO move loading to a function?
   useEffect(() => {
     if (imageDataURL) {
       const img = new Image();
@@ -37,7 +44,31 @@ const Canvas: FC = () => {
 
       img.src = imageDataURL;
     }
-  }, [context, imageDataURL]);
+  }, [context]);
+
+  useEffect(() => {
+    if (loadedImageDataURL === null) {
+      return;
+    }
+
+    if (loadedImageDataURL === "clear") {
+      context?.clearRect(0, 0, WIDTH, HEIGHT);
+      dispatch(setLoadedURL(null));
+      dispatch(setDataURL(null));
+
+      return;
+    }
+
+    const img = new Image();
+
+    img.onload = function () {
+      context?.clearRect(0, 0, WIDTH, HEIGHT);
+      context?.drawImage(img, 0, 0);
+    };
+
+    img.src = loadedImageDataURL!;
+  }, [loadedImageDataURL]);
+  // TODO -//-
 
   function getCoordinates(e: any) {
     const rect = canvasRef.current!.getBoundingClientRect();
@@ -113,7 +144,7 @@ const Canvas: FC = () => {
       onMouseUp={onMouseUp}
       className="canvas-wrapper"
     >
-      <canvas ref={canvasRef} width="100" height="100"></canvas>
+      <canvas ref={canvasRef} width={WIDTH} height={HEIGHT}></canvas>
     </div>
   );
 };

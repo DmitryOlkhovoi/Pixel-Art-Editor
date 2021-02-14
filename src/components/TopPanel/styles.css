@@ -1,4 +1,8 @@
 .top-panel {
-  @apply text-white p-4;
+  @apply flex justify-between items-center text-white p-4;
   background-color: #16171e;
+}
+
+.top-panel-logo {
+  @apply text-2xl;
 }

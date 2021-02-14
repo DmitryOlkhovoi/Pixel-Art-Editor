@@ -6,6 +6,7 @@ export interface PixelState {
 
 export interface ImageState {
   dataURL: string | null;
+  loadedDataURL: string | null;
 }
 
 export interface ToolState {
