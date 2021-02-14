@@ -1,4 +1,5 @@
 # Pixel Art Editor
+<img width="1680" alt="Screen Shot 2021-02-15 at 12 29 30 AM" src="https://raw.githubusercontent.com/DmitryOlkhovoi/Pixel-Art-Editor/master/images/preview.png">
 
 ## Roadmap
 This is a new project! Here you can follow the progress and help
