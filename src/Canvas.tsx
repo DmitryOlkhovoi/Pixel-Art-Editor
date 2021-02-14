@@ -2,8 +2,9 @@ import { FC, MouseEvent, useEffect, useRef, useState } from "react";
 import bresenham from "bresenham";
 import "./Canvas.css";
 import { useDispatch, useSelector } from "react-redux";
-import { State } from "./types";
 import { setDataURL, setLoadedURL } from "./store/actions/image";
+import { getRandomPromoImage } from "./utils";
+import { State } from "./types";
 
 const WIDTH = 100;
 const HEIGHT = 100;
@@ -54,7 +55,7 @@ const Canvas: FC = () => {
     if (loadedImageDataURL === "clear") {
       context?.clearRect(0, 0, WIDTH, HEIGHT);
       dispatch(setLoadedURL(null));
-      dispatch(setDataURL(null));
+      dispatch(setDataURL(getRandomPromoImage()));
 
       return;
     }

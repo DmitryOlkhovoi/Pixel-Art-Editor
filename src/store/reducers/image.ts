@@ -1,5 +1,6 @@
 import { handleActions } from "redux-actions";
 import { ImageState } from "../../types";
+import { getRandomPromoImage } from "../../utils";
 
 const reducer = handleActions<ImageState, any>(
   {
@@ -10,7 +11,7 @@ const reducer = handleActions<ImageState, any>(
       return { ...state, loadedDataURL: action.payload };
     },
   },
-  { loadedDataURL: null, dataURL: null }
+  { loadedDataURL: null, dataURL: getRandomPromoImage() }
 );
 
 export default reducer;
