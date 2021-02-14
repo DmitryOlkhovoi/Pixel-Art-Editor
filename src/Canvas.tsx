@@ -12,6 +12,7 @@ const Canvas: FC = () => {
   const size = useSelector((state: State) => state.pixel.size);
   const color = useSelector((state: State) => state.pixel.color);
   const imageDataURL = useSelector((state: State) => state.image.dataURL);
+  const selectedTool = useSelector((state: State) => state.tool.selectedTool);
 
   const [lastPixel, setLastPixel] = useState<number[]>();
 
@@ -70,13 +71,19 @@ const Canvas: FC = () => {
   }
 
   function fillPixel({ x, y }: any) {
-    context!.fillStyle = color;
-    context!.fillRect(
-      x - Math.floor(size / 2),
-      y - Math.floor(size / 2),
-      size,
-      size
-    );
+    const fx = x - Math.floor(size / 2);
+    const fy = y - Math.floor(size / 2);
+
+    switch (selectedTool) {
+      case "eraser": {
+        context?.clearRect(fx, fy, size, size);
+        break;
+      }
+      default: {
+        context!.fillStyle = color;
+        context!.fillRect(fx, fy, size, size);
+      }
+    }
   }
 
   return (

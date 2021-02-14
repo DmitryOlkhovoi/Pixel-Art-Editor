@@ -1,0 +1,13 @@
+.left-panel {
+  background-color: #27282e;
+  color: #5b5c65;
+}
+
+.left-panel-tool {
+  @apply py-5 px-8 cursor-pointer text-center;
+}
+
+.left-panel-tool-active {
+  background-color: #6c6d7b;
+  color: #eaeaf6;
+}
