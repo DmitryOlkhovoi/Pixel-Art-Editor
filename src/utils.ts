@@ -9,5 +9,5 @@ export function getRandomIntInclusive(min: number, max: number) {
 }
 
 export function getRandomPromoImage() {
-  return PROMO_IMAGES[getRandomIntInclusive(1, 1)];
+  return PROMO_IMAGES[getRandomIntInclusive(0, 0)];
 }
