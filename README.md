@@ -1,5 +1,5 @@
 # Pixel Art Editor
-[OPEN](pixel-art-editor.vercel.app/) 
+[OPEN](https://pixel-art-editor.vercel.app/) 
 
 <img width="1680" alt="Screen Shot 2021-02-15 at 12 29 30 AM" src="https://raw.githubusercontent.com/DmitryOlkhovoi/Pixel-Art-Editor/master/images/preview.png">
 ## Roadmap
